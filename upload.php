@@ -57,6 +57,8 @@ function compressWithGDLib($destinationFile, $uploadDirectory){
          * Create image and  process with GD Library
          */
         $image = ImageCreateFromPNG($destinationFile);
+
+        /** TODO add color resampling like ImageMagick */
         imagealphablending($image, false);
         imagesavealpha($image, GD_LIB_PRE . $fileName);
 
