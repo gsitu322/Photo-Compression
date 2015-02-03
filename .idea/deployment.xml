@@ -5,7 +5,7 @@
       <paths name="Gordonsitu">
         <serverdata>
           <mappings>
-            <mapping deploy="/photo-compress" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/project/photo-compress" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
