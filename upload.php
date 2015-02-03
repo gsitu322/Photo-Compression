@@ -58,12 +58,15 @@ function compressWithGDLib($destinationFile, $uploadDirectory){
          */
         $image = ImageCreateFromPNG($destinationFile);
 
+        /*** Save the alpha transparency and reduce the number of colors in the image to 256 */
         /** TODO add color resampling like ImageMagick */
         imagealphablending($image, false);
         imagesavealpha($image, GD_LIB_PRE . $fileName);
+        imagetruecolortopalette($image, false, 256);
 
         /** Save image to uploads directory  */
-        imagepng($image, $uploadDirectory . GD_LIB_PRE . $fileName, 1, 'PNG_ALL_FILTERS');
+        imagepng($image, $uploadDirectory . GD_LIB_PRE . $fileName, 9, 'PNG_ALL_FILTERS');
+
     }catch (Exception $e){
         throw new Exception($e->getMessage());
     }
@@ -104,11 +107,6 @@ function compressWithImageMaigicK($destinationFile, $uploadDirectory){
         /** Quantize Image is our main tool to compress the image. Quantize image reduces the numbers of colors to a smaller subset resulting in an image that is smaller in file size. Currently quantizeImage reduces the colors of the image to 256 colors */
         /** TODO find way to fix dither errors */
         $imImage->quantizeImage(256, $colorSpace , 0, false, false);
-
-        /** @var Imagick $ns Create color palette for remapping the colors to the image to the colors on the palette. */
-        /** TODO Find way to incoporate this for possibly gif use */
-        //$ns = new Imagick('colors/colormap_332.png');
-        //$imImage->remapImage($ns, Imagick::DITHERMETHOD_FLOYDSTEINBERG  );
 
         /** Write the wand image to the uploads directory */
         $imImage->writeImage($uploadDirectory . IMG_MAG_PRE . $fileName);
