@@ -8,7 +8,7 @@ The two libraries use function to reduce the number of colors in our PNG image w
 #How It Works
 TinyPNG.com uses quantization to reduce image sizes. Quantization take a set of values and reduce it down to a smaller subset. In the case of images, quantization takes a large set of colors to generate a new image with a smaller subset of colors.
 
-PNG images come with color palettes that range from 24-bit, 32-bit, 8-bit, greyscale, and many other bit depths. These color palettes can contain 1 color all the way to millions of colors. For example, a 24 bit color palette can contain 16,777,216 different color combinations and a 32-bit color palette can contain 4,294,967,296 colors combinations. The result of a high quality image with many colors is an image with a large file size.
+PNG images come with color palettes that range from 24-bit, 32-bit, 8-bit, grayscale, and many other bit depths. These color palettes can contain 1 color all the way to millions of colors. For example, a 24 bit color palette can contain 16,777,216 different color combinations and a 32-bit color palette can contain 4,294,967,296 colors combinations. The result of a high quality image with many colors is an image with a large file size.
 
 With TinyPNG.com we are able to generate an 8-bit image using 256 colors. With 256 colors we are still able to clearly see the whole image and its details with the added benefit of a greatly reduced file size.
 
